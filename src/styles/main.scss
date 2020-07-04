@@ -3,5 +3,375 @@
 @import "typography";
 
 body {
-  background: $c-gray;
+  background: $background;
+}
+
+.app {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  &__button {
+    position: absolute;
+    background: $blue;
+    outline: none;
+    width: 110px;
+    color: $button-text-white;
+    transition: 0.3s;
+
+    &:hover {
+      background: $button-text-white;
+      color: $blue;
+    }
+  }
+
+  &__button-next {
+    color: $button-text-white;
+    width: 63px;
+    height: 36px;
+    background: $blue;
+    transition: 0.3s;
+    &:hover {
+      background: white;
+      color: $blue;
+    }
+  }
+
+  &__button-prev {
+    display: none;
+    color: $blue;
+    width: 63px;
+    height: 36px;
+    background: white;
+    transition: 0.3s;
+    &:hover {
+      background: $blue;
+      color: white;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 30px;
+  }
+
+  &__dot {
+    width: 6px;
+    height: 6px;
+    background: gray;
+    border-radius: 50%;
+  }
+
+  &__background-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #b6b6b6;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &__carousel {
+    position: relative;
+    display: flex;
+    width: 1024px;
+    height: 512px;
+    padding: 3px;
+    @media screen and (max-width: $desktop-breakpoint) {
+      width: 80vw;
+      justify-content: center;
+    }
+  }
+
+  &__carousel-close {
+    background-image: url("../images/close.svg");
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+
+  &__carousel-greatings {
+    display: none;
+    position: absolute;
+  }
+
+  &__carousel-greatings--article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 512px;
+    height: 512px;
+    background: white;
+    padding: 35px;
+    box-sizing: border-box;
+    @media screen and (max-width: $desktop-breakpoint) {
+      width: 80vw;
+    }
+
+    @media screen and (max-width: $phone-breakpoint) {
+      width: 90vw;
+    }
+  }
+
+  &__carousel-greatings--head {
+    color: $blue;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    transform: translateY(-40px);
+    @media screen and (max-width: $phone-breakpoint) {
+      font-size: 20px;
+    }
+  }
+
+  &__carousel-greatings--text {
+    color: black;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    width: 80%;
+    transform: translateY(-40px);
+    margin-bottom: 20px;
+    @media screen and (max-width: $phone-breakpoint) {
+      width: 100%;
+    }
+  }
+
+  &__carousel-greatings--field {
+    position: relative;
+    width: 512px;
+    height: 512px;
+    background: $blue;
+    overflow: hidden;
+
+    @media screen and (max-width: $desktop-breakpoint) {
+      display: none;
+    }
+  }
+
+  &__carousel-greatings-icons {
+    position: absolute;
+  }
+
+  &__carousel-gif {
+    object-fit: cover;
+    object-position: center;
+    width: 512px;
+    height: 512px;
+  }
+}
+
+.active {
+  display: flex;
+}
+
+.active-dot {
+  background: $blue;
+}
+
+.wrapper {
+  display: none;
+}
+
+.wrapper__buttons {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  width: 180px;
+  left: 3%;
+  bottom: 7%;
+  z-index: 10;
+}
+
+.button {
+  border-radius: 6px;
+  height: 36px;
+  border: 1px solid $blue;
+  outline: none;
+  cursor: pointer;
+}
+
+.carousel {
+  &__icon-window {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    z-index: 2;
+  }
+
+  &__icon-woman {
+    top: 50%;
+    left: 50%;
+    transform: translate(-25%, 45%);
+    z-index: 3;
+  }
+
+  &__icon-present {
+    top: 17%;
+    left: 72%;
+    animation: feather-reverse 6s 1s infinite both;
+  }
+
+  &__icon-card {
+    top: 60%;
+    left: 0;
+  }
+
+  &__icon-feather--blue {
+    top: 75%;
+    left: -25px;
+    z-index: 2;
+    animation: feather 7s infinite both;
+  }
+
+  &__icon-feather--blue-smaller {
+    height: 63px;
+    top: 61%;
+    right: 6%;
+    z-index: 2;
+    animation: feather-reverse 5s 1s infinite both;
+  }
+
+  &__icon-feather--dark-blue {
+    top: 70%;
+    left: 7px;
+    z-index: 1;
+  }
+
+  &__icon-feather--red {
+    top: 70%;
+    right: 7px;
+    z-index: 2;
+    animation: feather 5s infinite both;
+  }
+
+  &__icon-feather--orange {
+    top: 85%;
+    left: 0;
+    z-index: 3;
+    animation: feather 12s infinite both;
+  }
+
+  &__icon-bag {
+    top: 15%;
+    left: 5%;
+    animation: feather 10s infinite both;
+  }
+
+  &__icon-sparkle--blue {
+    top: 17%;
+    left: 50%;
+    animation: opacity 3s 3s infinite alternate;
+  }
+
+  &__icon-sparkle--blue-another {
+    top: 7%;
+    left: 66%;
+  }
+
+  &__icon-sparkle--dark-blue {
+    top: 5%;
+    left: 45%;
+  }
+
+  &__icon-sparkle--red {
+    top: 7%;
+    left: 25%;
+    animation: opacity 2s 2s infinite alternate backwards;
+  }
+
+  &__icon-sparkle--red-another {
+    top: 15%;
+    left: 90%;
+    animation: opacity 5s 3s infinite alternate;
+  }
+
+  &__icon-sparkle--red-little {
+    width: 6px;
+    height: 7px;
+    top: 25%;
+    left: 65%;
+  }
+
+  &__icon-sparkle--orange {
+    top: 23%;
+    left: 35%;
+    width: 6px;
+    height: 7px;
+  }
+
+  &__icon-sparkle--orange-another {
+    top: 10%;
+    left: 80%;
+    width: 6px;
+    height: 7px;
+    animation: opacity 2s infinite alternate;
+  }
+
+  &__icon-sparkle--orange-big {
+    top: 30%;
+    left: 45%;
+    animation: opacity 1s infinite alternate;
+  }
+}
+
+@keyframes feather {
+  0% {
+    transform: rotate(0);
+  }
+
+  85% {
+    transform: rotate(0);
+  }
+
+  90% {
+    transform: rotate(-20deg);
+  }
+
+  95% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes feather-reverse {
+  0% {
+    transform: rotate(0);
+  }
+
+  85% {
+    transform: rotate(0);
+  }
+
+  90% {
+    transform: rotate(20deg);
+  }
+
+  95% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
 }
