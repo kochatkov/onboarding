@@ -11,7 +11,6 @@ const gulpReplacePath = require('gulp-replace-path');
 
 const gulpStylelint = require('gulp-stylelint');
 const gulpHtmllint = require('gulp-htmllint');
-const gulpEslint = require('gulp-eslint');
 
 const distDirectory = 'dist';
 const htmlBlob = 'src/*.html';
@@ -78,8 +77,6 @@ gulp.task('processStyles', series('lintCss', function() {
 
 gulp.task('processJs', function() {
   return gulp.src(jsBlob)
-    .pipe(gulpEslint())
-    .pipe(gulpEslint.format())
     .pipe(gulp.dest(`${distDirectory}/scripts/`));
 });
 
